@@ -7,8 +7,14 @@
     <title>Playground — Complete Intro to Vue 3</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
     <div id="app">
+      <h1>Counter</h1>
+      <p>
+        {{ count }}
+      </p>
+      <button v-on:click="incrementCount">Increment</button>
+      <hr />
+      <h1>Hello World!</h1>
       <p v-if="message.length % 2 === 0">Even: {{ message }}</p>
       <p v-else>Odd: {{ message }}</p>
       <ul>
@@ -24,8 +30,15 @@
       const app = createApp({
         data() {
           return {
+            count: 0,
             message: 'Hello, it works!',
             listOfNumbers: [1, 2, 3, 4, 5]
+          }
+        },
+
+        methods: {
+          incrementCount() {
+            this.count++ // the options API recognize our app as the context within which the count variable exists and runs the function.
           }
         }
       });
