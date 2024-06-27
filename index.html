@@ -4,7 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gilmore Girls</title>
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <h1>Fav Movie: Gilmore Girls</h1>
+      
+        <p v-if="characters.length === 0">There are no characters here</p> <!-- v-if vs v-show: performance considerations
+         -->
+        <ul v-else>
+          <li v-for="char in characters">
+            {{ char.name }}
+          </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+
+      const app = createApp({
+        data() {
+          return {
+            characters: [
+              {
+                name: 'Lorelai Gilmore',
+                
+              },
+              {
+                name: 'Rory Gilmore',
+
+              },
+              {
+                name: 'Luke Danes',
+
+              },
+              {
+                name: 'Emily Gilmore',
+
+              }
+            ]
+          }
+        }
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
 </html>
